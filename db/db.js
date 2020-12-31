@@ -1,4 +1,5 @@
 const connection = require("./connection.js");
+const index = require("../index.js")
 
 class LocalDB {
 
@@ -40,24 +41,23 @@ class LocalDB {
     }
     findDepartments(){
         return this.connection.query(`
-        SELECT 
+        SELECT
+            department.id,
 			department.name AS department
 		FROM
-			employee
-					LEFT JOIN role ON employee.role_id = role.id 
-                    LEFT JOIN department ON role.department_id = department.id
-                    LEFT JOIN employee manager ON manager.id = employee.manager_id;
+			department
         `);
     }
     
-    postDepartments(){
-        return this.connection.query(`
-        
-
-        `);
+    insertDepartments(departmentName){
+        return this.connection.query(`INSERT INTO department (name) VALUES ('${departmentName}')`);
     }
-
-
+    insertRole(role){
+        return this.connection.query(`INSERT INTO role SET ?`, role);
+    }
+    insertEmployee(employee){
+        return this.connection.query(`INSERT INTO employee SET ?`, employee);
+    }
 }
 
 module.exports = new LocalDB(connection);
