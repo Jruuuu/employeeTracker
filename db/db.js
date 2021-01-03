@@ -58,6 +58,9 @@ class LocalDB {
     insertEmployee(employee){
         return this.connection.query(`INSERT INTO employee SET ?`, employee);
     }
+    stop(){
+        return this.connection.end()
+    }
 }
 
 module.exports = new LocalDB(connection);

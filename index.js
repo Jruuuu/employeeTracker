@@ -21,7 +21,7 @@ const startApp = () => {
                 "Add Department",
                 "Add Role",
                 "Add Employee",
-                "Update Role"
+                "Exit"
             ]
         }
     ]).then((answer) => {
@@ -44,6 +44,8 @@ const startApp = () => {
             case "Add Employee":
                 addEmployee();
                 break;
+            case "Exit":
+                stopApp()    
             default:
                 break;
         }
@@ -90,13 +92,13 @@ const addDepartments = () => {
 }
 const addRole = async () => {
     const departments = await LocalDB.findDepartments();
-    console.log(departments);
+    // console.log(departments);
     const choices = departments.map(department => ({
         name: department.department,
         value: department.id
     })
     );
-    console.log(choices);
+    // console.log(choices);
     inquirer.prompt([
         {
             type: "input",
@@ -115,62 +117,70 @@ const addRole = async () => {
             choices: choices
         }
     ]).then((answer) => {
-        console.log(answer);
+        // console.log(answer);
         LocalDB.insertRole(answer).then(() => {
             console.log("role successfully added");
             startApp();
         });
     });
 };
+
 const addEmployee = async () => {
+    const role = await LocalDB.findDepartments();
+
+    // console.log(role);
+
+    const choicesRole = role.map(role => ({
+        name: role.department,
+        value: role.id
+    })
+    );
     const employee = await LocalDB.findAllEmployees();
     console.log(employee);
     let choicesManager = employee.map(employee => ({
         name: `${employee.first_name} ${employee.last_name}`,
-        value: employee.manager_id
+        value: employee.id
     })
-    );
-    choicesManager = choicesManager.filter((employee) => employee.value !== null);
+    )
+     choicesManager = choicesManager.filter((employee) => employee.value !== null);
 
-    const role = await LocalDB.findRoles();
-
-    console.log(role);
-
-    const choicesRole = role.map(role => ({
-        name: role.title,
-        value: role.id
-    })
-    );
     inquirer.prompt([
         {
             type: "input",
             name: "first_name",
-            message: "What Role would you like to add?"
+            message: "What is the First Name of the Employee you would like to add"
         },
         {
             type: "input",
             name: "last_name",
-            message: "What is the salary for this Role?"
+            message: "What is the Last Name of the Employee you would like to add"
         },
         {
             type: "list",
             name: "role_id",
-            message: "What department does this role belong?",
+            message: "What Role Id  does this belong to?",
             choices: choicesRole
         },
         {
             type: "list",
             name: "manager_id",
-            message: "What department does this role belong?",
+            message: "What Manager does this employee  belong too?",
             choices: choicesManager
         }
     ]).then((answer) => {
-        console.log(answer);
+        // console.log(choicesManager)
+        // console.log(choicesRole)
+        // console.log(answer);
         LocalDB.insertEmployee(answer).then(() => {
             console.log("employee successfully added");
             startApp();
         });
     });
+
+}
+const stopApp=()=>{
+    LocalDB.stop();
+    console.log("You have Exited the employee Tracker")
 }
 
 
