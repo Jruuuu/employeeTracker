@@ -136,7 +136,7 @@ const addEmployee = async () => {
     })
     );
     const employee = await LocalDB.findAllEmployees();
-    console.log(employee);
+    console.table(employee);
     let choicesManager = employee.map(employee => ({
         name: `${employee.first_name} ${employee.last_name}`,
         value: employee.id
@@ -177,10 +177,10 @@ const addEmployee = async () => {
         });
     });
 
-}
+};
 const stopApp=()=>{
     LocalDB.stop();
     console.log("You have Exited the employee Tracker")
-}
+};
 
 
