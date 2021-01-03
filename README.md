@@ -28,7 +28,7 @@ I am a manager  looking to create an Employee Tracker that ineracts with a datab
 <br>
 I have added a link to a installation video for guidance
 <br>
-<a href="https://drive.google.com/file/d/1AYCAZZmo-m3Z2M7HNxWjCEF6sUACWUa8/view">***--Installation Video Link--***</a>
+<a href="https://drive.google.com/file/d/1EsdKON_z67I4pJEG8IoDHVPPDoUqyLZT/view">***--Installation Video Link--***</a>
 <br>
 
 ## Questions Prompted for Employee Tracker <a name="questions"></a>
@@ -39,7 +39,7 @@ I have added a link to a installation video for guidance
 <br>
 -What Role would you like to add?
 <br>
--Wuat Employee would you like to add?
+-What Employee would you like to add?
 
 
 ## Test Commands <a name="test"></a>

@@ -148,12 +148,12 @@ const addEmployee = async () => {
         {
             type: "input",
             name: "first_name",
-            message: "What is the First Name of the Employee you would like to add"
+            message: "What is the First Name of the Employee you would like to add?"
         },
         {
             type: "input",
             name: "last_name",
-            message: "What is the Last Name of the Employee you would like to add"
+            message: "What is the Last Name of the Employee you would like to add?"
         },
         {
             type: "list",
