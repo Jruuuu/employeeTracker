@@ -22,7 +22,7 @@ I am a manager  looking to create an Employee Tracker that ineracts with a datab
 - Exit - to exit MYSQL
 - Clone Repo
 - Git Bash - "npm init -y"
-- Git Bash - "npm inquirer mysql util"
+- Git Bash - "npm inquirer mysql util console.table"
 - Run Command: node index.js
 <br>
 <br>
