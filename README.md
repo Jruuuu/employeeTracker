@@ -19,10 +19,10 @@ I am a manager  looking to create an Employee Tracker that ineracts with a datab
 - INSTALL MYSQL *Remember Password*
 - To Verify MYSQL Install -"mysql -V"
 - Run MYSQL Git Bash - "mysql -u root -p"
-- Exit - to exit mysql
+- Exit - to exit MYSQL
 - Clone Repo
 - Git Bash - "npm init -y"
-- Git Bash - "npm inquirer"
+- Git Bash - "npm inquirer mysql util"
 - Run Command: node index.js
 <br>
 <br>
